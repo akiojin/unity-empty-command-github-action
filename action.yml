@@ -1,0 +1,49 @@
+name: 'Unity empty command'
+description: >
+  This action simply loads the project in UnityEditor.
+  It can be used to determine compile errors, etc.
+inputs:
+  additional-arguments:
+    description: >
+      Specify additional required arguments.
+    required: false
+    default: ''
+  build-target:
+    description: >
+      Allows the selection of an active build target before loading a project.
+      
+      Possible options are:
+      Standalone, Win, Win64, OSXUniversal, Linux, Linux64, LinuxUniversal, iOS, Android, Web, WebStreamed, WebGL, XboxOne, PS4, WindowsStoreApps, Switch, N3DS, tvOS.
+    required: true
+  install-directory:
+    description: >
+      If the Unity installation location is not the default, specify the path in this parameter.
+      or in the environment variable `UNITY_HUB_INSTALL_DIRECTORY`.
+      The path must exclude the version number.
+      ex) E:\Unity\
+    required: false
+    default: ''
+  log-file:
+    description: >
+      Specify where Unity writes the Editor or Windows/Linux/OSX standalone log file.
+      To output to the console, specify - for the path name.
+      On Windows, specify - option to make the output go to stdout, which is not the console by default.
+    required: false
+    default: '-'
+  project-directory:
+    description: >
+      Open the project at the given path. If the pathname contains spaces, enclose it in quotes.
+    required: false
+    default: ${{ github.workspace }}
+  unity-version:
+    description: >
+      Specify the Unity version to be used.
+      If omitted, the project version is used.
+    required: false
+    default: ''
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: "box"
+  color: "orange"
