@@ -1,6 +1,6 @@
 {
   "name": "@akiojin/unity-empty-command-github-action",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "This action simply loads the project in UnityEditor.",
   "main": "dist/index.js",
   "scripts": {
